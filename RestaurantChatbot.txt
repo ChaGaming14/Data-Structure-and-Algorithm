@@ -1,0 +1,56 @@
+package restaurantchatbot;
+
+import java.util.Scanner;
+
+public class RestaurantChatbot {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Welcome to the Restaurant Chatbot!");
+        System.out.println("How can I help you today?");
+
+        while (true) {
+            System.out.print("You: ");
+            String userInput = scanner.nextLine().toLowerCase();
+
+            String botResponse = getBotResponse(userInput);
+            System.out.println("Bot: " + botResponse);
+
+            if (userInput.equals("exit")) {
+                System.out.println("Thank you for using the Restaurant Chatbot. Goodbye!");
+                break;
+            }
+        }
+
+        scanner.close();
+    }
+
+    private static String getBotResponse(String userInput) {
+        String response;
+
+        if (userInput.contains("menu")) {
+            response = "Sure, here is the menu: Burger, Pizza, Pasta, Salad, Soda.";
+        } else if (userInput.contains("order")) {
+            response = "Great! What would you like to order?";
+        } else if (userInput.contains("burger")) {
+            response = "One burger coming right up!";
+        } else if (userInput.contains("pizza")) {
+            response = "A delicious pizza is on its way!";
+        } else if (userInput.contains("pasta")) {
+            response = "Pasta is a fantastic choice!";
+        } else if (userInput.contains("salad")) {
+            response = "A healthy salad it is!";
+        } else if (userInput.contains("soda")) {
+            response = "A refreshing soda is on the way!";
+        } else if (userInput.contains("thank you")) {
+            response = "You're welcome! Enjoy your meal.";
+        } else if (userInput.equals("exit")) {
+            response = "Goodbye!";
+        } else {
+            response = "I'm sorry, I didn't understand that. How can I assist you?";
+        }
+
+        return response;
+    }
+}
+
